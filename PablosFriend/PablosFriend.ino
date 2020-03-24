@@ -1,8 +1,7 @@
-const int right1[] = {11, 7};
-const int right2[] = {5, 4};
-const int left1[] = {10, 6};
-const int left2[] = {9, 8};// direction 8, step 9;
-// 11/10/9/6/5/3
+const int right1[] = {A0, 2};// right 1
+const int right2[] = {A1, 4};// left 1
+const int left1[] = {A2, 7};//right 2
+const int left2[] = {A3, 8};// left 2  direction A3, step 8;
 
 int servoPin = 3;
 int minP = 630; // right
@@ -20,12 +19,12 @@ void setup() {
   pinMode(left1[0], OUTPUT);
   pinMode(left1[1], OUTPUT);
   digitalWrite(left1[0], LOW);
-  digitalWrite(left1[1], HIGH);
+  digitalWrite(left1[1], LOW);
 
   pinMode(left2[0], OUTPUT);
   pinMode(left2[1], OUTPUT);
   digitalWrite(left2[0], LOW);
-  digitalWrite(left2[1], LOW);
+  digitalWrite(left2[1], HIGH);
 
   pinMode(right1[0], OUTPUT);
   pinMode(right1[1], OUTPUT);
@@ -75,33 +74,33 @@ void control() {
 
 void moveforward(int steps, int sec) {
   digitalWrite(left1[1], LOW);
-  digitalWrite(left2[1], LOW);
+  digitalWrite(left2[1], HIGH);
   digitalWrite(right1[1], LOW);
-  digitalWrite(right2[1], HIGH);
+  digitalWrite(right2[1], LOW);
   movin(steps, sec);
 }
 
 void movebackward(int steps, int sec) {
   digitalWrite(left1[1], HIGH);
-  digitalWrite(left2[1], HIGH);
+  digitalWrite(left2[1], LOW);
   digitalWrite(right1[1], HIGH);
-  digitalWrite(right2[1], LOW);
+  digitalWrite(right2[1], HIGH);
   movin(steps, sec);
 }
 
 void moveleft(int steps, int sec) {
   digitalWrite(left1[1], LOW);
-  digitalWrite(left2[1], LOW);
+  digitalWrite(left2[1], HIGH);
   digitalWrite(right1[1], LOW);
-  digitalWrite(right2[1], HIGH);
+  digitalWrite(right2[1], LOW);
   movinl(steps, sec);
 }
 
 void moveright(int steps, int sec) {
   digitalWrite(left1[1], LOW);
-  digitalWrite(left2[1], LOW);
+  digitalWrite(left2[1], HIGH);
   digitalWrite(right1[1], LOW);
-  digitalWrite(right2[1], HIGH);
+  digitalWrite(right2[1], LOW);
   movinr(steps, sec);
 }
 
