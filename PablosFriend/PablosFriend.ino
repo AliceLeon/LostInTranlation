@@ -97,22 +97,22 @@ void control() {
       case 'o':
         Serial.println("moving head1");
         for (pos2 = 45; pos2 <= 180; pos2 += 1) {
-          waist.write(pos2);
+          head1.write(pos2);
           delay(5);
         }
         for (pos2 = 180; pos2 <= 45; pos2 -= 1) {
-          waist.write(pos2);
+          head1.write(pos2);
           delay(5);
         }
         break;
       case 'p':
         Serial.println("right head2");
         for (pos3 = 45; pos3 <= 180; pos3 += 1) {
-          waist.write(pos3);
+          head2.write(pos3);
           delay(5);
         }
         for (pos3 = 180; pos3 <= 45; pos3 -= 1) {
-          waist.write(pos3);
+          head2.write(pos3);
           delay(5);
         }
         break;
