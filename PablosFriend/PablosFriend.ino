@@ -20,9 +20,9 @@ Servo head2;
 
 int byteIn = 0;
 
-int pos = 0;
-int pos = 0;
-int pos = 0;
+int pos1 = 0;
+int pos2 = 0;
+int pos3 = 0;
 
 void setup() {
 
