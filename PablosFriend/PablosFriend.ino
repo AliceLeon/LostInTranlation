@@ -53,7 +53,6 @@ void setup() {
   head1.attach(head1_);
   head2.attach(head2_);
 
-
 }
 
 void loop() {
@@ -85,36 +84,15 @@ void control() {
         break;
       case 'i':
         Serial.println("moving waist");
-        for (pos1 = 45; pos1 <= 180; pos1 += 1) {
-          waist.write(pos1);
-          delay(5);
-        }
-        for (pos1 = 180; pos1 <= 45; pos1 -= 1) {
-          waist.write(pos1);
-          delay(5);
-        }
+        moveWaist();
         break;
       case 'o':
         Serial.println("moving head1");
-        for (pos2 = 45; pos2 <= 180; pos2 += 1) {
-          head1.write(pos2);
-          delay(5);
-        }
-        for (pos2 = 180; pos2 <= 45; pos2 -= 1) {
-          head1.write(pos2);
-          delay(5);
-        }
+        moveHead1();
         break;
       case 'p':
         Serial.println("right head2");
-        for (pos3 = 45; pos3 <= 180; pos3 += 1) {
-          head2.write(pos3);
-          delay(5);
-        }
-        for (pos3 = 180; pos3 <= 45; pos3 -= 1) {
-          head2.write(pos3);
-          delay(5);
-        }
+        moveHead2();
         break;
       default:
         break;
@@ -122,6 +100,36 @@ void control() {
   }
 }
 
+void moveWaist() {
+  for (pos1 = 45; pos1 <= 135; pos1 += 1) {
+    waist.write(pos1);
+    delay(15);
+  }
+  for (pos1 = 135; pos1 <= 45; pos1 -= 1) {
+    waist.write(pos1);
+    delay(15);
+  }
+}
+void moveHead1() {
+  for (pos2 = 45; pos2 <= 135; pos2 += 1) {
+    head1.write(pos2);
+    delay(5);
+  }
+  for (pos2 = 135; pos2 <= 45; pos2 -= 1) {
+    head1.write(pos2);
+    delay(5);
+  }
+}
+void moveHead2() {
+  for (pos3 = 45; pos3 <= 135; pos3 += 1) {
+    head2.write(pos3);
+    delay(15);
+  }
+  for (pos3 = 45; pos3 <= 135; pos3 -= 1) {
+    head2.write(pos3);
+    delay(15);
+  }
+}
 void moveforward(int steps, int sec) {
   digitalWrite(left1[1], LOW);
   digitalWrite(left2[1], LOW);
