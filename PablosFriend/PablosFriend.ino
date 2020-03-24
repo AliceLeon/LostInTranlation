@@ -29,8 +29,9 @@ boolean movingservo2 = false;
 boolean movingservo3 = false;
 
 void setup() {
-
-  pinMode(servoPin, OUTPUT);
+  pinMode(waist_, OUTPUT);
+  pinMode(head1_, OUTPUT);
+  pinMode(head2_, OUTPUT);
   Serial.begin(9600);
 
   pinMode(left1[0], OUTPUT);
@@ -60,17 +61,17 @@ void setup() {
 }
 
 void loop() {
-//  servoPulse(servoPin, whatnow);
+  //  servoPulse(servoPin, whatnow);
   control();
-  if (movingservo1) {
-    moveWaist();
-  }
-  if (movingservo2) {
-    moveHead1();
-  }
-  if (movingservo3) {
-    moveHead2();
-  }
+//  if (movingservo1) {
+//    moveWaist();
+//  }
+//  if (movingservo2) {
+//    moveHead1();
+//  }
+//  if (movingservo3) {
+//    moveHead2();
+//  }
 }
 
 
@@ -97,15 +98,18 @@ void control() {
         break;
       case 'i':
         Serial.println("moving waist");
-        movingservo1 = !movingservo1;
+//        movingservo1 = !movingservo1;
+        moveWaist();
         break;
       case 'o':
         Serial.println("moving head1");
-        movingservo2 = !movingservo2;
+//        movingservo2 = !movingservo2;
+        moveHead1();
         break;
       case 'p':
         Serial.println("right head2");
-        movingservo3 = !movingservo3;
+//        movingservo3 = !movingservo3;
+        moveHead2();
         break;
       default:
         break;
