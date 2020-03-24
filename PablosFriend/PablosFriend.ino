@@ -1,13 +1,22 @@
+#include <Servo.h>
 const int left1[] = {A1, 4};
 const int left2[] = {A3, 8};
 const int right1[] = {A0, 2};
 const int right2[] = {A2, 7};// step A2, direction 8;
 
-int servoPin = 3;
+const int head1_[] = {5, 0};
+const int head2_[] = {6, 0};
+const int waist_[] = {3, 0};
+
+int servoPin = 6;
 int minP = 630; // right
 int maxP = 2500; // left
 int midP = (maxP + minP) / 2.; // mid
 int whatnow = midP;
+
+Servo waist;
+Servo head1;
+Servo head2;
 
 int byteIn = 0;
 
@@ -35,6 +44,10 @@ void setup() {
   pinMode(right2[1], OUTPUT);
   digitalWrite(right2[0], LOW);
   digitalWrite(right2[1], LOW);
+
+  waist.attach(waist_[0]);
+  head1.attach(head1_[0]);
+  head2.attach(head2_[0]);
 }
 
 void loop() {
@@ -64,6 +77,33 @@ void control() {
       case 'd':
         Serial.println("right recieved.");
         moveright(600, 1000);
+        break;
+      case 'i':
+        Serial.println("moving waist");
+        for (waist_[1] = 45; waist_[1] <= 180; waist_[1] += 1) {
+          waist.write(pos);
+          delay(5);
+          waist.write(pos);
+          delay(5);
+        }
+        break;
+      case 'o':
+        Serial.println("moving head1");
+        for (head1_[1] = 45; head1_[1] <= 180; head1_[1] += 1) {
+          head1.write(pos);
+          delay(5);
+          head1.write(pos);
+          delay(5);
+        }
+        break;
+      case 'p':
+        Serial.println("right head2");
+        for (head2_[1] = 45; head2_[1] <= 180; head2_[1] += 1) {
+          head1.write(pos);
+          delay(5);
+          head1.write(pos);
+          delay(5);
+        }
         break;
       default:
         break;
