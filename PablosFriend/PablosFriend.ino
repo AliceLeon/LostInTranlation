@@ -73,7 +73,7 @@ void control() {
 
 void moveforward(int steps, int sec) {
   digitalWrite(left1[1], LOW);
-  digitalWrite(left2[1], HIGH);
+  digitalWrite(left2[1], LOW);
   digitalWrite(right1[1], LOW);
   digitalWrite(right2[1], LOW);
   movin(steps, sec);
@@ -81,7 +81,7 @@ void moveforward(int steps, int sec) {
 
 void movebackward(int steps, int sec) {
   digitalWrite(left1[1], HIGH);
-  digitalWrite(left2[1], LOW);
+  digitalWrite(left2[1], HIGH);
   digitalWrite(right1[1], HIGH);
   digitalWrite(right2[1], HIGH);
   movin(steps, sec);
@@ -89,7 +89,7 @@ void movebackward(int steps, int sec) {
 
 void moveleft(int steps, int sec) {
   digitalWrite(left1[1], LOW);
-  digitalWrite(left2[1], HIGH);
+  digitalWrite(left2[1], LOW);
   digitalWrite(right1[1], LOW);
   digitalWrite(right2[1], LOW);
   movinl(steps, sec);
@@ -97,7 +97,7 @@ void moveleft(int steps, int sec) {
 
 void moveright(int steps, int sec) {
   digitalWrite(left1[1], LOW);
-  digitalWrite(left2[1], HIGH);
+  digitalWrite(left2[1], LOW);
   digitalWrite(right1[1], LOW);
   digitalWrite(right2[1], LOW);
   movinr(steps, sec);
