@@ -17,7 +17,6 @@ void setup() {
   pinMode(servoPin, OUTPUT);
   Serial.begin(9600);
 
-
   pinMode(left1[0], OUTPUT);
   pinMode(left1[1], OUTPUT);
   digitalWrite(left1[0], LOW);
