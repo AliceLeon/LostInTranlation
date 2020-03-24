@@ -24,6 +24,10 @@ int pos1 = 0;
 int pos2 = 0;
 int pos3 = 0;
 
+boolean movingservo1 = false;
+boolean movingservo2 = false;
+boolean movingservo3 = false;
+
 void setup() {
 
   pinMode(servoPin, OUTPUT);
@@ -58,6 +62,15 @@ void setup() {
 void loop() {
   servoPulse(servoPin, whatnow);
   control();
+  if (movingservo1) {
+    moveWaist();
+  }
+  if (movingservo2) {
+    moveHead1();
+  }
+  if (movingservo3) {
+    moveHead2();
+  }
 }
 
 
@@ -84,15 +97,15 @@ void control() {
         break;
       case 'i':
         Serial.println("moving waist");
-        moveWaist();
+        movingservo1 = !movingservo1;
         break;
       case 'o':
         Serial.println("moving head1");
-        moveHead1();
+        movingservo2 = !movingservo2;
         break;
       case 'p':
         Serial.println("right head2");
-        moveHead2();
+        movingservo3 = !movingservo3;
         break;
       default:
         break;
