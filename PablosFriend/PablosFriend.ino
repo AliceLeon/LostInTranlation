@@ -71,7 +71,6 @@ void control() {
   }
 }
 
-
 void moveforward(int steps, int sec) {
   digitalWrite(left1[1], LOW);
   digitalWrite(left2[1], HIGH);
