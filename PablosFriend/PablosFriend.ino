@@ -8,7 +8,7 @@ const int head1_ = 5;
 const int head2_ = 6;
 const int waist_ = 3;
 
-int servoPin = 6;
+//int servoPin = 6;
 int minP = 630; // right
 int maxP = 2500; // left
 int midP = (maxP + minP) / 2.; // mid
@@ -60,7 +60,7 @@ void setup() {
 }
 
 void loop() {
-  servoPulse(servoPin, whatnow);
+//  servoPulse(servoPin, whatnow);
   control();
   if (movingservo1) {
     moveWaist();
