@@ -1,7 +1,7 @@
-const int right1[] = {A0, 2};// right 1
-const int right2[] = {A1, 4};// left 1
-const int left1[] = {A2, 7};//right 2
-const int left2[] = {A3, 8};// left 2  direction A3, step 8;
+const int left1[] = {A1, 4};
+const int left2[] = {A3, 8};
+const int right1[] = {A0, 2};
+const int right2[] = {A2, 7};// step A2, direction 8;
 
 int servoPin = 3;
 int minP = 630; // right
@@ -39,8 +39,8 @@ void setup() {
 
 void loop() {
   servoPulse(servoPin, whatnow);
-  moveforward(600, 1000);
-  //  control();
+  // moveforward(600, 1000);
+  control();
 }
 
 
