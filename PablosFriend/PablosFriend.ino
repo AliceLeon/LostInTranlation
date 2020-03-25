@@ -4,8 +4,8 @@ const int left2[] = {A3, 8};
 const int right1[] = {A0, 2};
 const int right2[] = {A2, 7};// step A2, direction 8;
 
-const int head1_ = 5;
-const int head2_ = 6;
+const int head1_ = 11;
+const int head2_ = 10;
 const int waist_ = 3;
 
 //int servoPin = 6;
@@ -32,6 +32,7 @@ void setup() {
   pinMode(waist_, OUTPUT);
   pinMode(head1_, OUTPUT);
   pinMode(head2_, OUTPUT);
+
   Serial.begin(9600);
 
   pinMode(left1[0], OUTPUT);
@@ -63,15 +64,15 @@ void setup() {
 void loop() {
   //  servoPulse(servoPin, whatnow);
   control();
-//  if (movingservo1) {
-//    moveWaist();
-//  }
-//  if (movingservo2) {
-//    moveHead1();
-//  }
-//  if (movingservo3) {
-//    moveHead2();
-//  }
+  if (movingservo1) {
+    moveWaist();
+  }
+  if (movingservo2) {
+    moveHead1();
+  }
+  if (movingservo3) {
+    moveHead2();
+  }
 }
 
 
@@ -98,18 +99,18 @@ void control() {
         break;
       case 'i':
         Serial.println("moving waist");
-//        movingservo1 = !movingservo1;
-        moveWaist();
+        movingservo1 = !movingservo1;
+        //        moveWaist();
         break;
       case 'o':
         Serial.println("moving head1");
-//        movingservo2 = !movingservo2;
-        moveHead1();
+        movingservo2 = !movingservo2;
+        //        moveHead1();
         break;
       case 'p':
         Serial.println("right head2");
-//        movingservo3 = !movingservo3;
-        moveHead2();
+        movingservo3 = !movingservo3;
+        //        moveHead2();
         break;
       default:
         break;
