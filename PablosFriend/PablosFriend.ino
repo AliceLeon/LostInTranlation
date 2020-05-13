@@ -43,7 +43,7 @@ void setup() {
   pinMode(left2[0], OUTPUT);
   pinMode(left2[1], OUTPUT);
   digitalWrite(left2[0], LOW);
-  digitalWrite(left2[1], HIGH);
+  digitalWrite(left2[1], LOW);
 
   pinMode(right1[0], OUTPUT);
   pinMode(right1[1], OUTPUT);
@@ -100,17 +100,17 @@ void control() {
       case 'i':
         Serial.println("moving waist");
         movingservo1 = !movingservo1;
-        //        moveWaist();
+        // moveWaist();
         break;
       case 'o':
         Serial.println("moving head1");
         movingservo2 = !movingservo2;
-        //        moveHead1();
+        // moveHead1();
         break;
       case 'p':
-        Serial.println("right head2");
+        Serial.println("moving head2");
         movingservo3 = !movingservo3;
-        //        moveHead2();
+        // moveHead2();
         break;
       default:
         break;
@@ -119,11 +119,11 @@ void control() {
 }
 
 void moveWaist() {
-  for (pos1 = 45; pos1 <= 135; pos1 += 1) {
+  for (pos1 = 60; pos1 <= 120; pos1 += 1) {
     waist.write(pos1);
     delay(15);
   }
-  for (pos1 = 135; pos1 <= 45; pos1 -= 1) {
+  for (pos1 = 120; pos1 >= 60; pos1 -= 1) {
     waist.write(pos1);
     delay(15);
   }
@@ -131,11 +131,11 @@ void moveWaist() {
 void moveHead1() {
   for (pos2 = 45; pos2 <= 135; pos2 += 1) {
     head1.write(pos2);
-    delay(5);
+    delay(15);
   }
-  for (pos2 = 135; pos2 <= 45; pos2 -= 1) {
+  for (pos2 = 135; pos2 >= 45; pos2 -= 1) {
     head1.write(pos2);
-    delay(5);
+    delay(15);
   }
 }
 void moveHead2() {
@@ -143,7 +143,7 @@ void moveHead2() {
     head2.write(pos3);
     delay(15);
   }
-  for (pos3 = 45; pos3 <= 135; pos3 -= 1) {
+  for (pos3 = 135; pos3 >= 45; pos3 -= 1) {
     head2.write(pos3);
     delay(15);
   }
